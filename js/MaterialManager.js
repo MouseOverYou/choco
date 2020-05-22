@@ -126,7 +126,6 @@ function CreateCustomMaterials() {
     colMat.wireframe = true
     colMat.alpha = 0
 
-
     var hsText = new BABYLON.Texture("./assets/ui/hotspot.png", scene, true, true)
     HSMat = new BABYLON.PBRMaterial("HSMat", scene)
     HSMat.unlit = true

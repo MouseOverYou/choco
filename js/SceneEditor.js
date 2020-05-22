@@ -66,109 +66,16 @@ function AddGlow() {
 }
 
 
-
-function CreateEnvMaterial(hdr, vis) {
-
-    hdrSkyboxMaterial = new BABYLON.PBRMaterial("hdrSkyBox", scene);
-    hdrSkyboxMaterial.backFaceCulling = false;
-    hdrSkyboxMaterial.reflectionTexture = hdr.clone();
-    hdrSkyboxMaterial.reflectionTexture.coordinatesMode = BABYLON.Texture.SKYBOX_MODE;
-    hdrSkyboxMaterial.microSurface = 1.0;
-    hdrSkyboxMaterial.disableLighting = false;
-    // Create Skybox
-    hdrSkybox.material = hdrSkyboxMaterial;
-    hdrSkybox.visibility = vis
-}
-
-function ChangeEnvMesh(vis) {
-
-    if (vis == 0) {
-        console.log("setting off")
-    }
-    else {
-        console.log("setting on")
-    }
-
-
-}
-
 var Hs_Plane_P
 var HsPLaneList = []
-var Hs_Turbine_P
-var HsTurbineList = []
 function SpawnHotspots() {
     //Plane
     Hs_Plane_P = new BABYLON.TransformNode("Hs_Plane_P", scene)
-    var hs0 = new Hotspot("0", new BABYLON.Vector3(-3.5, 1.5, -2.5), HotspotInfoMat, Hs_Plane_P)
+    var hs0 = new Hotspot("0", new BABYLON.Vector3(0.25, 0.5, 0.75), HSMat, Hs_Plane_P)
     HsPLaneList.push(hs0.Mesh);
-    var hs1 = new Hotspot("1", new BABYLON.Vector3(3.5, 1, -2.5), HotspotMat, Hs_Plane_P)
-    HsPLaneList.push(hs1.Mesh);
-    var hs2 = new Hotspot("2", new BABYLON.Vector3(0.5, 3.2, -7), HotspotInfoMat, Hs_Plane_P)
-    HsPLaneList.push(hs2.Mesh);
-
-    //Turbine
-    Hs_Turbine_P = new BABYLON.TransformNode("Hs_Turbine_P", scene)
-    var hs3 = new Hotspot("3", new BABYLON.Vector3(2, 3.5, 0), HotspotInfoMat, Hs_Turbine_P)
-    HsTurbineList.push(hs3.Mesh);
-    var hs4 = new Hotspot("4", new BABYLON.Vector3(-5, 4, 0), HotspotMat, Hs_Turbine_P)
-    HsTurbineList.push(hs4.Mesh);
-    var hs5 = new Hotspot("5", new BABYLON.Vector3(-10, 4.5, 0), HotspotInfoMat, Hs_Turbine_P)
-    HsTurbineList.push(hs5.Mesh);
-
-    DisableElems(HsTurbineList)
 
 }
 
-function sayHello() {
-    console.log("hello")
-}
-
-
-function ManageWorlds(world) {
-    currentWorld = world
-    if (world == "plane") {
-        //spawn Plane HS
-        //Select HDR
-        changeEnv(hdrTexture, 1)
-        //turn off
-        Turbine_P.setEnabled(false)
-        BGDefault.skybox.setEnabled(false)
-
-        //turn on
-        Plane_P.setEnabled(true)
-        Roof_P.setEnabled(true)
-        EnableElems(HsPLaneList);
-        DisableElems(HsTurbineList)
-
-        //reset camera
-        camera.alpha = 0 * (Math.PI / 180)
-        camera.beta = 85 * (Math.PI / 180)
-        camera.radius = 18
-
-    }
-    else if (world == "turbine") {
-        //spawn tubine HS
-        //Select HDR
-        changeEnv(CityEnvTask, 0)
-
-        //turn on
-        Turbine_P.setEnabled(true)
-        BGDefault.skybox.setEnabled(true)
-
-        //reset camera
-        camera.alpha = 200 * (Math.PI / 180)
-        camera.beta = 85 * (Math.PI / 180)
-        camera.radius = 10
-
-        window.setTimeout(EnableElems, 2000, HsTurbineList)
-        DisableElems(HsPLaneList)
-    }
-
-}
-
-function TeardownTurbine() {
-    TurbineAnim.restart()
-}
 
 function DisableElems(list) {
     for (let elem of list) {

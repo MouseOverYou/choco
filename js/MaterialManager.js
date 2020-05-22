@@ -42,7 +42,7 @@ function ChangeMaterialProperties() {
 
     let sceneMats = scene.materials;
     for (let mat of sceneMats) {
-        if (mat.name == "hdrSkyBox" || mat.name == "BackgroundSkyboxMaterial" || mat.name =="BackgroundPlaneMaterial") {
+        if (mat.name == "hdrSkyBox" || mat.name == "BackgroundSkyboxMaterial" || mat.name =="BackgroundPlaneMaterial" || mat.name == "HotspotMat") {
             continue;
         }
         mat.reflectionTexture = hdrTextureCity;
@@ -120,44 +120,20 @@ function scaleText(text, uValue, vValue, strength){
     text.level = strength
 }
 
-var colMat, HotspotMat, HotspotInfoMat
+var colMat, HSMat
 function CreateCustomMaterials() {
     colMat = new BABYLON.StandardMaterial("colMat", scene)
     colMat.wireframe = true
     colMat.alpha = 0
 
-    /*
-    var hsInfoText = new BABYLON.Texture("./assets/hotspot_info.png", scene, true, true)
-    var hsText = new BABYLON.Texture("./assets/hotspot.png", scene, true, true)
-    HotspotMat = new BABYLON.PBRMaterial("HotspotMat", scene)
-    HotspotMat.unlit = true
-    HotspotMat.albedoTexture = hsText
-    HotspotMat.opacityTexture = hsText
 
-    HotspotInfoMat = new BABYLON.PBRMaterial("HotspotInfoMat", scene)
-    HotspotInfoMat.unlit = true
-    HotspotInfoMat.albedoTexture = hsInfoText
-    HotspotInfoMat.opacityTexture = hsInfoText
-    */
+    var hsText = new BABYLON.Texture("./assets/ui/hotspot.png", scene, true, true)
+    HSMat = new BABYLON.PBRMaterial("HSMat", scene)
+    HSMat.unlit = true
+    HSMat.albedoTexture = hsText
+    HSMat.opacityTexture = hsText
 
     
 }
 
-function createVideoMat() {
-
-    var videoMat = new BABYLON.PBRMaterial("videoMat", scene);
-    videoMats.push(videoMat)
-    var dotsText = new BABYLON.Texture("./assets/videoDots2.jpg", scene, true, false)
-    var ambientScreen = new BABYLON.Texture("./assets/screenAmbient.jpg", scene, true, false)
-    videoMat.ambientTexture = ambientScreen
-    videoMat.bumpTexture = dotsText
-    videoMat.bumpTexture.level = 0
-    videoMat.bumpTexture.uScale = 1
-    videoMat.bumpTexture.vScale = 1
-    videoMat.emissiveColor = new BABYLON.Color3.FromHexString("#313131")
-    videoMat.metallic = 0
-    videoMat.roughness = 0
-
-    return videoMat;
-}
 

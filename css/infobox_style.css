@@ -11,12 +11,13 @@
 }
 
 .infobox{
+    border-radius: 5px;
     width: 400px;
     height: 600px;
     position: absolute;
     right: -400px;
     top: 60px;
-    background-color: #353A40;
+    background-color: #d90210;
     background-image: url(../assets/dot_grid.png);
     background-repeat: no-repeat;
     background-position: center;
@@ -30,6 +31,7 @@
 }
 
 .image-top{
+	border-radius: 5px;
     width: 400px;
     height: 140px;
     background-color: #fff;
@@ -40,6 +42,10 @@
 
 
 .video-top{
+border-top-left-radius: 5px;
+border-top-right-radius: 5px;
+border-bottom-left-radius: 0px;
+border-bottom-right-radius: 0px;
     width: 400px;
     height: 180px;
     background-color: #000;

@@ -2,7 +2,7 @@ class Hotspot {
     constructor(name, pos, mat, papa){
 
     //mesh
-    this.Mesh = new BABYLON.MeshBuilder.CreatePlane("hs " + name, { size: 0.75 }, scene);
+    this.Mesh = new BABYLON.MeshBuilder.CreatePlane("hs " + name, { size: 0.35 }, scene);
     this.Mesh.position = pos;
 
     //parent
@@ -12,7 +12,7 @@ class Hotspot {
     this.Mesh.material = mat;
 
     //collider
-    this.hsColl = new BABYLON.MeshBuilder.CreateBox("HS Collider " + name, { height: 1, width:1, depth: 0.1 }, scene)
+    this.hsColl = new BABYLON.MeshBuilder.CreateBox("HS Collider " + name, { height: 0.5, width:0.5, depth: 0.1 }, scene)
 
     this.hsColl.material = colMat;
     this.hsColl.setParent(this.Mesh);

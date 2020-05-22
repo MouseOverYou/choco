@@ -15,7 +15,6 @@ var createScene = function () {
     var scene = new BABYLON.Scene(engine);
 
     var assetsManager = new BABYLON.AssetsManager(scene)
-    CreateCustomMaterials()
     LoadAssets(scene, assetsManager)
     camera = new BABYLON.ArcRotateCamera("Camera", 0 * (Math.PI / 180), 90 * (Math.PI / 180), 3, new BABYLON.Vector3(0, 0.75, 0), scene);
     camera.minZ = 1
@@ -29,13 +28,6 @@ var createScene = function () {
     camera.angularSensibilityy = 3000
     camera.wheelPrecision = 10
     camera.attachControl(canvas, true, true, false);
-
-    var sphereGlass = BABYLON.Mesh.CreateSphere("sphereGlass", 48, 1.5, scene);
-    sphereGlass.position.y = 2
-    sphereGlass.visibility = 0;
-
-
-
 
     scene.clearColor = new BABYLON.Color3(1, 1, 1);
     scene.ambientColor = new BABYLON.Color3(1, 1, 1);
@@ -53,17 +45,8 @@ var createScene = function () {
 
     scene.onPointerMove = function () {
         //updates rotation of hotspots
-        if (currentWorld == "plane") {
-            for (let hs of HsPLaneList) {
-                //A_LooksAt_B(hs, camera)
-            }
-        }
-
-        else if (currentWorld == "turbine") {
-
-            for (let hs of HsTurbineList) {
-                //A_LooksAt_B(hs, camera)
-            }
+        for (let hs of HsPLaneList) {
+            A_LooksAt_B(hs, camera)
         }
 
     }
@@ -71,52 +54,20 @@ var createScene = function () {
     var showUI = false
     scene.onPointerDown = function () {
 
-        var pickInfo = scene.pick(scene.pointerX, scene.pointerY, function (mesh) { return (mesh.name.startsWith("PackCollider") && mesh.isPickable); });
-        if (pickInfo && pickInfo.pickedMesh && !isAnimating) {
+        var pickInfo = scene.pick(scene.pointerX, scene.pointerY, function (mesh) { return (mesh.name.startsWith("HS Collider") && mesh.isPickable); });
+        if (pickInfo && pickInfo.pickedMesh) {
 
-            //alert(pickInfo.pickedMesh.name);
-            CurrentSelection = pickInfo.pickedMesh.name.split('PackCollider')[1];
-
-            //avoid same selection
-            if (PacksList[CurrentSelection].position.z == 2) {
-                return;
+            CurrentSelection = pickInfo.pickedMesh.name.split('HS Collider')[1];
+            showUI = !showUI
+            if (showUI) {
+                //$('#InfoUI').css('display', "block")
+                document.getElementById("infobox-video").style.opacity = "1"
+                document.getElementById("infobox-video").style.right = "60px"
             }
-            //shoot Particles
-            var pos = pickInfo.pickedMesh.getAbsolutePosition()
-            pos.y = 1.3
-            console.log(pos)
-            createWinParticles(CurrentSelection, pos)
-            
-            window.setTimeout(()=>{
-                selectParticles.stop();
-            }, 1500)
-
-            //Animate
-            ChangeFocusPack(CurrentSelection)
-            ShowSelectedAnim(CurrentSelection)
-            switch (CurrentSelection) {
-                case "0":
-                    break;
-
-                case "1":
-                    break;
-
-                case "2":
-                    break;
-
-                case "3":
-                    break;
-
-                case "4":
-                    break;
-
-                case "5":
-                    break;
-
-                case "6":
-                    break;
+            else {
+                document.getElementById("infobox-video").style.opacity = "0"
+                document.getElementById("infobox-video").style.right = "-400px"
             }
-
         }
     }
     return scene;
@@ -150,11 +101,3 @@ window.addEventListener("resize", function () {
     engine.resize();
 });
 
-
-
-/*
-TO DO:
-Mute video streaming: cvurrent fake mute
-EXplision reveal pack
-change urls
-*/

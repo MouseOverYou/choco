@@ -83,23 +83,16 @@ function LoadAssets(scene, assetsManager) {
 
     var pbr
     assetsManager.onFinish = function (task) {
-        //CreateParticlesHolder()
-        //CreateParticleTextures()
-        //NutsAnim.goToFrame(0.25)
-        //PlayNuts()
-
-        
+        CreateCustomMaterials()
         ChangeMaterialProperties()
         BufferStartAnim()
         StartExpAnimation()
 
-        
-        //EditMeshes()
+
         CreateLighting()
         AddShadows();
-        //AnimateReveal()
 
-
+        SpawnHotspots();
     }
     //Asset Manager check
     assetsManager.onProgress = function (remainingCount, totalCount, lastFinishedTask) {

@@ -46,14 +46,14 @@ body {
 	position: absolute;
 }
 #colourPicker {
-  margin-left:auto;
+  margin-left:2vw;
   margin-right:auto;
-  	    width: 10vh;
-		  /*width: 1000px;*/
+  width: 10vh;
   /*change width*/
+  margin-top: 10vh;
 	border-style: solid;
 	border-width: 0.4vh;
-	border-color:rgb(255, 255, 255);
+	border-color:rgb(255, 255, 255,0);
   background-color:rgb(0, 0, 0, 0);
 }
 /*only div elements which parent are #cikiurPicker*/
@@ -76,24 +76,28 @@ body {
   	border-width: 0 0vh 0 0;
 }
 #colour0 {
-	background-color: rgb(0, 255, 234);
+	background-color: rgb(0, 255, 234,0);
 }
 #colour1 {
-	background-color: rgb(255, 230, 0);
+  background-color: rgb(255, 230, 0,0);
 }
 #colour2 {
-	background-color: rgb(0, 110, 255);
+	background-color: rgb(0, 110, 255,0);
 }
 #colour3 {
-	background-color: rgb(255, 0, 170);
+	background-color: rgb(255, 0, 170,0);
 }
 #colour4 {
-	background-color: rgb(255, 0, 0);
+	background-color: rgb(255, 0, 0,0);
 }
 #colour5 {
-	background-color: rgb(0, 0, 0);
+	background-color: rgb(0, 0, 0,0);
 }
 
 .selectedColour {
 	border-width: 0 0 0 0vh;
+}
+
+div img {
+  width: 100%;
 }

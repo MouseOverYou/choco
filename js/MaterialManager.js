@@ -27,10 +27,13 @@ function ChangeMaterialProperties() {
     var white = new BABYLON.Color3.FromHexString("#FFFFFF");
     var black = new BABYLON.Color3.FromHexString("#000000");
 
-    var var_0 = new BABYLON.Texture("./assets/hotspot_info.png", scene, true, true)
+    var var_0 = ""
     var var_1 = new BABYLON.Texture("./assets/var_1.png", scene, true, true)
     var var_2 = new BABYLON.Texture("./assets/var_2.png", scene, true, true)
-    var var_2 = new BABYLON.Texture("./assets/var_3.png", scene, true, true)
+    var var_3 = new BABYLON.Texture("./assets/var_3.png", scene, true, true)
+    var var_4 = new BABYLON.Texture("./assets/var_4.png", scene, true, true)
+    var var_5 = new BABYLON.Texture("./assets/var_4.png", scene, true, true)
+    var var_6 = new BABYLON.Texture("./assets/var_4.png", scene, true, true)
 
     let sceneMats = scene.materials;
     for (let mat of sceneMats) {

@@ -1,8 +1,6 @@
-var Hum_P
+var Jar_P, Nuts_P
 var hdrTextureCity, hdrSkyboxMaterial, hdrSkybox,  CityEnvTask
-let PacksList = [] 
-let AnimsList = []
-let PackColls = []
+var NutsAnim
 
 function LoadAssets(scene, assetsManager) {
 
@@ -35,10 +33,10 @@ function LoadAssets(scene, assetsManager) {
     }
 
 
-    Hum_P = new BABYLON.TransformNode("Hum_P");
-    HumLoaderTask = assetsManager.addMeshTask("", "", "./assets/Jar.glb")
+    Jar_P = new BABYLON.TransformNode("Jar_P");
+    JarLoaderTask = assetsManager.addMeshTask("", "", "./assets/Jar.glb")
 
-    HumLoaderTask.onSuccess = function (task) {
+    JarLoaderTask.onSuccess = function (task) {
 
         task.loadedMeshes[0].position.x = 0
         task.loadedMeshes[0].position.y = 0
@@ -46,11 +44,37 @@ function LoadAssets(scene, assetsManager) {
         task.loadedMeshes[0].rotationQuaternion = null;
         task.loadedMeshes[0].rotation.y = -90 * (Math.PI / 180)
         task.loadedMeshes[0].scaling = new BABYLON.Vector3(10,10, 10)
-        task.loadedMeshes[0].parent = Hum_P
+        task.loadedMeshes[0].parent = Jar_P
+        Jar_P.scaling = new BABYLON.Vector3(0,0,0)
+        Jar_P.rotation.y = -180 * (Math.PI / 180)
 
     }
 
-    HumLoaderTask.onError = function (task, message, exception) {
+    JarLoaderTask.onError = function (task, message, exception) {
+        console.log(message, exception);
+    }
+
+    Nuts_P = new BABYLON.TransformNode("Nuts_P");
+
+    NutsLoaderTask = assetsManager.addMeshTask("", "", "./assets/Nuts animation.glb")
+
+    NutsLoaderTask.onSuccess = function (task) {
+
+        task.loadedMeshes[0].position.x = 0
+        task.loadedMeshes[0].position.y = -0.06
+        task.loadedMeshes[0].position.z = 0
+        task.loadedMeshes[0].rotationQuaternion = null;
+        task.loadedMeshes[0].rotation.y = 0 * (Math.PI / 180)
+        task.loadedMeshes[0].scaling = new BABYLON.Vector3(1,1, 1)
+        task.loadedMeshes[0].parent = Nuts_P
+        Nuts_P.position.x = 0.1
+        NutsAnim = task.loadedAnimationGroups[0]
+        NutsAnim.stop()
+        console.log(NutsAnim)
+
+    }
+
+    NutsLoaderTask.onError = function (task, message, exception) {
         console.log(message, exception);
     }
 
@@ -61,10 +85,18 @@ function LoadAssets(scene, assetsManager) {
     assetsManager.onFinish = function (task) {
         //CreateParticlesHolder()
         //CreateParticleTextures()
+        //NutsAnim.goToFrame(0.25)
+        //PlayNuts()
 
+        
         ChangeMaterialProperties()
+        BufferStartAnim()
+        StartExpAnimation()
+
+        
         //EditMeshes()
         CreateLighting()
+        AddShadows();
         //AnimateReveal()
 
 

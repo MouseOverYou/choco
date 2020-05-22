@@ -19,7 +19,7 @@ function CreateParticleTextures(){
 
 }
 
-var labelMat
+var labelMat, NutsMaterial
 function ChangeMaterialProperties() {
 
     var white = new BABYLON.Color3.FromHexString("#FFFFFF");
@@ -75,6 +75,15 @@ function ChangeMaterialProperties() {
             mat.transparencyMode = 2
             mat.albedoColor = black
             mat.unlit = true
+        }
+        else if(mat.name == "nuts Mat"){
+            mat.metallic = 0
+            mat.metallicF0Factor = 0
+            mat.roughness = 0.5
+            mat.transparencyMode = 2
+            mat.alpha =0
+            NutsMaterial = mat
+
         }
 
     }

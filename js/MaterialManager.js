@@ -34,21 +34,30 @@ function ChangeMaterialProperties() {
         }
         mat.reflectionTexture = hdrTextureCity;
         if(mat.name == "Glass Nutella"){
-            mat.reflectionTexture = hdrTextureCity;
+            mat.albedoColor = new BABYLON.Color3.FromHexString("#220802")
+            mat.metallic = 0
+            mat.roughness = 1
+            mat.alpha = 1
+            mat.forceIrradianceInFragment = true;
+            mat.clearCoat.isEnabled = true;
             mat.refractionTexture = hdrTextureCity;
+            mat.linkRefractionWithTransparency = true;
+            mat.indexOfRefraction = 0.52;
+            mat.microSurface = 1;
+
+            /*
+            mat.reflectionTexture = hdrTextureCity;
+            
             mat.metallic = 0
             mat.roughness = 0
-            mat.linkRefractionWithTransparency = false;
-            mat.indexOfRefraction = 0.52;
+           
             mat.alpha = 0.2;
-            mat.microSurface = 1;
+           
             mat.reflectivityColor = new BABYLON.Color3(0.2, 0.2, 0.2);
             mat.albedoColor = new BABYLON.Color3(0.85, 0.85, 0.85);
+            */
         }
 
-        else if(mat.name == "Schoko Mat"){
-            mat.albedoColor = new BABYLON.Color3.FromHexString("#350D03")
-        }
 
         else if(mat.name == "Nutella Mat"){
             mat.metallic = 0

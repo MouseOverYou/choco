@@ -1,33 +1,41 @@
 /* Stylesheet Infobox */
 
-*{
-    padding: 0;
-    margin: 0;
-    text-decoration: none;
-}
-
 .clear{
     clear: both;
 }
-
-.infobox{
-    border-radius: 5px;
-    width: 400px;
-    height: 600px;
+#InfoboxHolder {
     position: absolute;
-    right: -400px;
-    top: 60px;
-    background-color: #d90210;
-    background-image: url(../assets/dot_grid.png);
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: auto;
-    opacity:1;
+    overflow-x: hidden;
+    z-index: 0;
+    top: 11vh;
+    right: 0vw;
+    opacity:0;
     -webkit-transition: all .5s ease;
 	-moz-transition: all .5s ease;
 	-ms-transition: all .5s ease;
 	-o-transition: all .5s ease;
 	transition: all .5s ease;
+
+}
+
+#infobox-video{
+    display: block;
+    pointer-events: none;
+}
+
+
+.infobox{
+    border-radius: 5px;
+    width: 400px;
+    height: 600px;
+    background-color: #d90210;
+    background-image: url(../assets/ui/dot_grid.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: auto;
+    pointer-events: none;
+    overflow: hidden;
+
 }
 
 .image-top{
@@ -144,15 +152,6 @@ p{
 
 
 
-#infobox-bild{
-    display: block;
-    pointer-events: none;
-}
-
-#infobox-video{
-    display: block;
-    pointer-events: none;
-}
 
 
 

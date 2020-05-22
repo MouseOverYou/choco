@@ -53,20 +53,21 @@ var createScene = function () {
 
     var showUI = false
     scene.onPointerDown = function () {
-
+        //alert("Hola")
+        
         var pickInfo = scene.pick(scene.pointerX, scene.pointerY, function (mesh) { return (mesh.name.startsWith("HS Collider") && mesh.isPickable); });
         if (pickInfo && pickInfo.pickedMesh) {
 
             CurrentSelection = pickInfo.pickedMesh.name.split('HS Collider')[1];
+            //alert(CurrentSelection)
             showUI = !showUI
             if (showUI) {
-                //$('#InfoUI').css('display', "block")
-                document.getElementById("infobox-video").style.opacity = "1"
-                document.getElementById("infobox-video").style.right = "60px"
+                document.getElementById("InfoboxHolder").style.opacity = "1"
+                document.getElementById("InfoboxHolder").style.right = "2vw"
             }
             else {
-                document.getElementById("infobox-video").style.opacity = "0"
-                document.getElementById("infobox-video").style.right = "-400px"
+                document.getElementById("InfoboxHolder").style.opacity = "0"
+                document.getElementById("InfoboxHolder").style.right = "0vw"
             }
         }
     }

@@ -55,60 +55,62 @@
             </div>
         </div>
     </div>
-    <div class="infobox" id="infobox-video">
-        <div class="video-top">
-            <iframe width="auto" height="100%" src="https://www.youtube.com/embed/zmAl_m0eCHc" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-        </div>
-        
-        <div class="content-box">
-            <h1>Das ist ein Titel</h1>
-            
-            <div id="value-box">
-                <div class="values" id="value01">
-                    <div class="value-icon">
-                        <img class="bild-angepasst" src="assets/ui/value_icon.png" alt="image" title="image"> 
-                    </div>
-                    <h2>Value 01</h2>
-                </div>
-                
-                <div class="values" id="value01">
-                    <div class="value-icon">
-                        <img class="bild-angepasst" src="assets/ui/value_icon.png" alt="image" title="image"> 
-                    </div>
-                    <h2>Value 02</h2>
-                </div>
-                
-                <div class="values" id="value01">
-                    <div class="value-icon">
-                        <img class="bild-angepasst" src="assets/ui/value_icon.png" alt="image" title="image"> 
-                    </div>
-                    <h2>Value 03</h2>
-                </div>
-                
-                <div class="values" id="value01">
-                    <div class="value-icon">
-                        <img class="bild-angepasst" src="assets/ui/value_icon.png" alt="image" title="image">
-                    </div>
-                    <h2>Value 04</h2>
-                </div>
-                
-                <div class="clear"></div><!-- zum floaten und aufheben -->
-
+    <div id="InfoboxHolder"style="user-select: none;">
+        <div class="infobox" id="infobox-video">
+            <div class="video-top">
+                <iframe width="auto" height="100%" src="https://www.youtube.com/embed/zmAl_m0eCHc" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
             </div>
             
-            <h3>Das ist ein Untertitel</h3>
-            <p>Nutella ist, was du draus machst. Mit deinem Etikett bestimmst du, was auf deinem nutella Glas steht oder wie es aussieht. So macht frühstücken gleich noch mehr Spaß.
-                Designe hier dein exklusives nutella Glas - Viel Spass!</p>
+            <div class="content-box">
+                <h1>Das ist ein Titel</h1>
+                
+                <div id="value-box">
+                    <div class="values" id="value01">
+                        <div class="value-icon">
+                            <img class="bild-angepasst" src="assets/ui/value_icon.png" alt="image" title="image"> 
+                        </div>
+                        <h2>Value 01</h2>
+                    </div>
+                    
+                    <div class="values" id="value01">
+                        <div class="value-icon">
+                            <img class="bild-angepasst" src="assets/ui/value_icon.png" alt="image" title="image"> 
+                        </div>
+                        <h2>Value 02</h2>
+                    </div>
+                    
+                    <div class="values" id="value01">
+                        <div class="value-icon">
+                            <img class="bild-angepasst" src="assets/ui/value_icon.png" alt="image" title="image"> 
+                        </div>
+                        <h2>Value 03</h2>
+                    </div>
+                    
+                    <div class="values" id="value01">
+                        <div class="value-icon">
+                            <img class="bild-angepasst" src="assets/ui/value_icon.png" alt="image" title="image">
+                        </div>
+                        <h2>Value 04</h2>
+                    </div>
+                    
+                    <div class="clear"></div><!-- zum floaten und aufheben -->
+    
+                </div>
+                
+                <h3>Das ist ein Untertitel</h3>
+                <p>Nutella ist, was du draus machst. Mit deinem Etikett bestimmst du, was auf deinem nutella Glas steht oder wie es aussieht. So macht frühstücken gleich noch mehr Spaß.
+                    Designe hier dein exklusives nutella Glas - Viel Spass!</p>
+                
             
-        
+            </div>
+            
+            
         </div>
-        
-        
     </div>
 
-    <canvas id="renderCanvas" touch-action="none"></canvas> //touch-action="none" for best results from PEP
-    <script type="text/javascript" src="js/InputController.js"></script>
+    <canvas id="renderCanvas" touch-action="none"></canvas>
     <script type="text/javascript" src='js/HelperFunctions.js'></script>
+    <script type="text/javascript" src="js/InputController.js"></script>
     <script type="text/javascript" src='js/MeshLoaderCtrl.js'></script>
     <script type="text/javascript" src='js/MaterialManager.js'></script>
     <script type="text/javascript" src='js/SceneEditor.js'></script>

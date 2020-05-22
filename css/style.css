@@ -6,6 +6,9 @@ body {
     margin: 0;
     padding: 0;
 }
+img{
+  width:0%
+}
 
 .logo{
   position: absolute;
@@ -63,14 +66,9 @@ body {
   /*change display*/
 	margin: 1vh;
 	width: 7.8vh;
-	height: 7.8vh;
+	height: auto;
 	border-style: solid;
   	cursor:pointer;
-	-webkit-transition: border-width .5s ease;
-	-moz-transition: border-width .5s ease;
-	-ms-transition: border-width .5s ease;
-	-o-transition: border-width .5s ease;
-	transition: border-width .5s ease;
 }
 .colourOption{
   	border-width: 0 0vh 0 0;
@@ -96,8 +94,4 @@ body {
 
 .selectedColour {
 	border-width: 0 0 0 0vh;
-}
-
-div img {
-  width: 100%;
 }

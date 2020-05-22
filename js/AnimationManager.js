@@ -20,6 +20,7 @@ var PlayNuts = async function () {
     NutsMaterial.alpha = 1
     await StartNutsAnim();
     await TurnShadowsOn();
+    await UIReveal();
 }
 
 function StartNutsAnim(){
@@ -31,38 +32,12 @@ function TurnShadowsOn(){
     
     generator.darkness = 0
 }
-//PARTICLES
-var emitterSelection, selectParticles
-function CreateParticlesHolder(){
-    emitterSelection = BABYLON.Mesh.CreateBox("emitterSelection", 0.1, scene);
-    emitterSelection.isVisible = false
-    emitterSelection.position.y = 1.3
+
+
+var revealUI = gsap.timeline({pause: true})
+
+function UIReveal(){
+    revealUI.to("img", {css:{width: "100%"}, delay: 2, ease: "back.out(1.7)", stagger: 0.1, duration: 0.5})
+    revealUI.to(HsPLaneList[0].scaling, {x:1, y:1, z:1, ease: "back.out(1.7)", duration: 0.5},"<1")
     
-}
-function createWinParticles(selec, pos) {
-    emitterSelection.position.x = pos.x
-    emitterSelection.position.z = pos.z
-
-    selectParticles = new BABYLON.ParticleSystem("rain", 10, scene);
-    selectParticles.particleTexture = PartTexts[selec]
-        
-    // Particles
-    selectParticles.minAngularSpeed = -2;
-    selectParticles.maxAngularSpeed = 2;
-    selectParticles.minSize = 0.3;
-    selectParticles.maxSize = 0.6;
-    selectParticles.minLifeTime = 0.5;
-    selectParticles.maxLifeTime = 1;
-    selectParticles.minEmitPower = 1;
-    selectParticles.maxEmitPower = 2;
-    selectParticles.emitter = emitterSelection;
-    selectParticles.emitRate = 6;
-    selectParticles.blendMode = BABYLON.ParticleSystem.BLENDMODE_STANDARD;
-    selectParticles.direction1 = new BABYLON.Vector3(-0.5, 0.8, -0.6);
-    selectParticles.direction2 = new BABYLON.Vector3(0.5, 0.6, 0.6);
-    selectParticles.colorDead = new BABYLON.Color4(1, 1, 1, 0.5)
-    selectParticles.gravity = new BABYLON.Vector3(0, -1, 0);
-    //selectParticles.disposeOnStop = true
-    selectParticles.start()
-
 }

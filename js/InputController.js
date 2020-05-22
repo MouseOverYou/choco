@@ -1,3 +1,25 @@
+jQuery(document).ready(function ($) {
+
+  //COLOUR COATING
+  /* Some simple jQuery to switch the classes */
+  $('.colourOption').on('click', function () {
+    //var colorValue = rgb2hex(getComputedStyle(this).backgroundColor)
+    var select = parseInt(this.id.split('colour')[1]);
+    console.log(labelText[select].name)
+    labelMat.albedoTexture = labelText[select]
+    //labelMat.albedoTexture.vScale = -1
+    /* Remove all classes selectedColour from all child elements*/
+    //$('#colourPicker *').removeClass('selectedColour');
+    /* This switches on the selectedColour class for that div. */
+    //$(this).toggleClass('selectedColour');
+  });
+
+
+});
+
+
+
+
 
 let LightSwitch = true
 let EnvSwitch = false
@@ -77,21 +99,3 @@ $(document).keyup(function (e) {
     //MuteVideoStreaming();
   }
 });
-
-function show_Info_Overlay() {
-  $('.info-overlay').addClass('open')
-  $('.info-overlay').removeClass('close')
-  $('.infobox').addClass('open')
-  $('.infobox').removeClass('close')
-  $('.videobox').addClass('open')
-  $('.videobox').removeClass('close')
-}
-
-function hide_Info_Overlay() {
-  $('.info-overlay').addClass('close')
-  $('.info-overlay').removeClass('open')
-  $('.infobox').addClass('close')
-  $('.infobox').removeClass('open')
-  $('.videobox').addClass('close')
-  $('.videobox').removeClass('open')
-}

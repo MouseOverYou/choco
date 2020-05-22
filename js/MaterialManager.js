@@ -1,9 +1,6 @@
-let woodMat, LeuchteMat
-let videoMats = []
-let coatMat;
-let daily_alphaSwoosh, coll_alphaSwoosh, hair_alphaSwoosh, omg1_alphaSwoosh, omg2_alphaSwoosh, red_alphaSwoosh
 
-let PartTexts = []
+let labelText = []
+
 function CreateParticleTextures(){
     var hairParticles = new BABYLON.Texture("./assets/ParticleTextures/hair heart 3.png", scene)
     PartTexts.push(hairParticles)
@@ -22,18 +19,26 @@ function CreateParticleTextures(){
 
 }
 
+var labelMat
 function ChangeMaterialProperties() {
 
     var white = new BABYLON.Color3.FromHexString("#FFFFFF");
     var black = new BABYLON.Color3.FromHexString("#000000");
 
-    var var_0 = ""
-    var var_1 = new BABYLON.Texture("./assets/var_1.png", scene, true, true)
-    var var_2 = new BABYLON.Texture("./assets/var_2.png", scene, true, true)
-    var var_3 = new BABYLON.Texture("./assets/var_3.png", scene, true, true)
-    var var_4 = new BABYLON.Texture("./assets/var_4.png", scene, true, true)
-    var var_5 = new BABYLON.Texture("./assets/var_4.png", scene, true, true)
-    var var_6 = new BABYLON.Texture("./assets/var_4.png", scene, true, true)
+    var var_0 = new BABYLON.Texture("./assets/DiffuseMap.png", scene, true, false)
+    labelText.push(var_0)
+    var var_1 = new BABYLON.Texture("./assets/var_1.png", scene, true, false)
+    labelText.push(var_1)
+    var var_2 = new BABYLON.Texture("./assets/var_2.png", scene, true, false)
+    labelText.push(var_2)
+    var var_3 = new BABYLON.Texture("./assets/var_3.png", scene, true, false)
+    labelText.push(var_3)
+    var var_4 = new BABYLON.Texture("./assets/var_4.png", scene, true, false)
+    labelText.push(var_4)
+    var var_5 = new BABYLON.Texture("./assets/var_5.png", scene, true, false)
+    labelText.push(var_5)
+    var var_6 = new BABYLON.Texture("./assets/var_6.png", scene, true, false)
+    labelText.push(var_6)
 
     let sceneMats = scene.materials;
     for (let mat of sceneMats) {
@@ -43,6 +48,7 @@ function ChangeMaterialProperties() {
         mat.reflectionTexture = hdrTextureCity;
         if(mat.name == "Glass Nutella"){
             mat.albedoColor = new BABYLON.Color3.FromHexString("#220802")
+            var_0 = mat.albedoTexture;
             mat.metallic = 0
             mat.roughness = 1
             mat.alpha = 1
@@ -56,6 +62,7 @@ function ChangeMaterialProperties() {
 
 
         else if(mat.name == "Nutella Mat"){
+            labelMat = mat
             mat.metallic = 0
             mat.roughness = 0
             mat.metallicF0Factor = 0

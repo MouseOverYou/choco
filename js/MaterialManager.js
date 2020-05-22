@@ -27,6 +27,11 @@ function ChangeMaterialProperties() {
     var white = new BABYLON.Color3.FromHexString("#FFFFFF");
     var black = new BABYLON.Color3.FromHexString("#000000");
 
+    var var_0 = new BABYLON.Texture("./assets/hotspot_info.png", scene, true, true)
+    var var_1 = new BABYLON.Texture("./assets/var_1.png", scene, true, true)
+    var var_2 = new BABYLON.Texture("./assets/var_2.png", scene, true, true)
+    var var_2 = new BABYLON.Texture("./assets/var_3.png", scene, true, true)
+
     let sceneMats = scene.materials;
     for (let mat of sceneMats) {
         if (mat.name == "hdrSkyBox" || mat.name == "BackgroundSkyboxMaterial" || mat.name =="BackgroundPlaneMaterial") {
@@ -44,18 +49,6 @@ function ChangeMaterialProperties() {
             mat.linkRefractionWithTransparency = true;
             mat.indexOfRefraction = 0.52;
             mat.microSurface = 1;
-
-            /*
-            mat.reflectionTexture = hdrTextureCity;
-            
-            mat.metallic = 0
-            mat.roughness = 0
-           
-            mat.alpha = 0.2;
-           
-            mat.reflectivityColor = new BABYLON.Color3(0.2, 0.2, 0.2);
-            mat.albedoColor = new BABYLON.Color3(0.85, 0.85, 0.85);
-            */
         }
 
 
@@ -64,26 +57,14 @@ function ChangeMaterialProperties() {
             mat.roughness = 0
             mat.metallicF0Factor = 0
         }
-        else if(mat.name.startsWith('_',1)){
-            mat.unlit = true
-        }
 
-        else if (mat.name == "Floor A") {
+        else if (mat.name == "FloorAO") {
             mat.opacityTexture = mat.albedoTexture;
             mat.opacityTexture .getAlphaFromRGB = true
             mat.albedoTexture = ""
             mat.transparencyMode = 2
             mat.albedoColor = black
             mat.unlit = true
-        }
-        else if(mat.name == "Floor B"){
-            mat.opacityTexture = mat.albedoTexture;
-            mat.opacityTexture .getAlphaFromRGB = true
-            mat.albedoTexture = ""
-            mat.transparencyMode = 2
-            mat.albedoColor = black
-            mat.unlit = true
-            
         }
 
     }

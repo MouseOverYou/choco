@@ -89,13 +89,12 @@ engine.runRenderLoop(function () {
         var fpsLabel = document.getElementById("fpsLabel");
         fpsLabel.innerHTML = engine.getFps().toFixed() + " fps";
     }
-    /*
+    
     if (UpdateAnimRate) {
-        AnimRate += 0.01
-        TurnLightsOn(AnimRate)
-        console.log(AnimRate)
+        AnimRate -= 0.03
+        ChangeLabel(AnimRate)
     }
-    */
+    
 });
 
 // Resize

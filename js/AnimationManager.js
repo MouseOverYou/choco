@@ -29,6 +29,7 @@ function StartNutsAnim(){
     
 }
 
+
 function StartSwoosh(){
     SwooshAnim.onAnimationGroupPlayObservable.add(()=>{
         console.log("started swoosh")
@@ -43,6 +44,27 @@ function StartSwoosh(){
         SwooshAnim.goToFrame = 0
     })
     SwooshAnim.play(false)
+
+}
+
+var textureChanged = false
+var TransitionTexture 
+function ChangeLabel(rate){
+    labelMat.albedoTexture.vOffset = rate
+    console.log(rate)
+
+    if(rate<-0.5 && !textureChanged){
+        //change
+        labelMat.albedoTexture = TransitionTexture
+        textureChanged = true
+    }
+
+    else if(rate<-1){
+        //stop transition
+        labelMat.albedoTexture.vOffset = -1
+        UpdateAnimRate = false
+        AnimRate = 0
+    }
 
 }
 

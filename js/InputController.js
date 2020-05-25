@@ -13,7 +13,12 @@ jQuery(document).ready(function ($) {
       },1000)
     }
     else{
-      labelMat.albedoTexture = labelText[select]
+      textureChanged = false
+      TransitionTexture = labelText[select]
+      TransitionTexture.vOffset = -0.5
+      UpdateAnimRate = true
+      
+      //labelMat.albedoTexture = labelText[select]
     }
 
     

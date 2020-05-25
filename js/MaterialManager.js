@@ -19,7 +19,7 @@ function CreateParticleTextures(){
 
 }
 
-var labelMat, NutsMaterial
+var labelMat, NutsMaterial, labelMat
 function ChangeMaterialProperties() {
 
     var white = new BABYLON.Color3.FromHexString("#FFFFFF");
@@ -61,8 +61,13 @@ function ChangeMaterialProperties() {
         }
 
 
-        else if(mat.name == "Nutella Mat"){
+        else if(mat.name == "LabelMat"){
             labelMat = mat
+            mat.metallic = 0
+            mat.roughness = 0
+            mat.metallicF0Factor = 0
+        }
+        else if(mat.name == "Decke"){
             mat.metallic = 0
             mat.roughness = 0
             mat.metallicF0Factor = 0

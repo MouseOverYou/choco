@@ -9,6 +9,7 @@ jQuery(document).ready(function ($) {
     if(select == 0){
       StartSwoosh()
       window.setTimeout(()=>{
+        labelText[select].vOffset = 0
         labelMat.albedoTexture = labelText[select]
       },1000)
     }

@@ -51,7 +51,7 @@ var textureChanged = false
 var TransitionTexture 
 function ChangeLabel(rate){
     labelMat.albedoTexture.vOffset = rate
-    console.log(rate)
+    //console.log(rate)
 
     if(rate<-0.5 && !textureChanged){
         //change

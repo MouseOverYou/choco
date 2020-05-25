@@ -2,12 +2,12 @@ var lightLinks, lightRechts, lightShadow
 function CreateLighting() {
     lightLinks = new BABYLON.DirectionalLight("lightLinks", new BABYLON.Vector3(-90, -90, 90), scene);
     lightLinks.position = new BABYLON.Vector3(0, 2, -1);
-    lightLinks.intensity = 2
+    lightLinks.intensity = 3
     //lightLinks.shadowMinZ = -13
 
     lightRechts = new BABYLON.DirectionalLight("lightRechts", new BABYLON.Vector3(-90, -90, -90), scene);
     lightRechts.position = new BABYLON.Vector3(0, 2, 1);
-    lightRechts.intensity = 2
+    lightRechts.intensity = 5
 
 
     lightShadow = new BABYLON.DirectionalLight("lightShadow", new BABYLON.Vector3(0, -90, 0), scene);

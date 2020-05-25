@@ -1,6 +1,6 @@
 var Jar_P, Nuts_P
 var hdrTextureCity, hdrSkyboxMaterial, hdrSkybox,  CityEnvTask
-var NutsAnim
+var NutsAnim, SwooshAnim
 
 function LoadAssets(scene, assetsManager) {
 
@@ -77,6 +77,31 @@ function LoadAssets(scene, assetsManager) {
     NutsLoaderTask.onError = function (task, message, exception) {
         console.log(message, exception);
     }
+
+    Swoosh_P = new BABYLON.TransformNode("Swoosh_P");
+
+    SwooshLoaderTask = assetsManager.addMeshTask("", "", "./assets/chocoSwoosh.glb")
+
+    SwooshLoaderTask.onSuccess = function (task) {
+
+        task.loadedMeshes[0].position.x = 0
+        task.loadedMeshes[0].position.y = -0.06
+        task.loadedMeshes[0].position.z = 0
+        task.loadedMeshes[0].rotationQuaternion = null;
+        task.loadedMeshes[0].rotation.y = 0 * (Math.PI / 180)
+        task.loadedMeshes[0].scaling = new BABYLON.Vector3(10,10, 10)
+        task.loadedMeshes[0].parent = Swoosh_P
+        Swoosh_P.position.x = 0.1
+        SwooshAnim = task.loadedAnimationGroups[0]
+        SwooshAnim.stop()
+        console.log(SwooshAnim)
+
+    }
+
+    SwooshLoaderTask.onError = function (task, message, exception) {
+        console.log(message, exception);
+    }
+
 
 
     //FINISH

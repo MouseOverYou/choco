@@ -9,6 +9,7 @@ function CreateLighting() {
     lightRechts.position = new BABYLON.Vector3(0, 2, 1);
     lightRechts.intensity = 2
 
+
     lightShadow = new BABYLON.DirectionalLight("lightShadow", new BABYLON.Vector3(0, -90, 0), scene);
     lightShadow.position = new BABYLON.Vector3(0, 2, 0);
     lightShadow.intensity = 0

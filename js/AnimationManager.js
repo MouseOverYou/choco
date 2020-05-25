@@ -25,7 +25,25 @@ var PlayNuts = async function () {
 
 function StartNutsAnim(){
     NutsAnim.start(false, 1, 0.5, 6.25)
+
     
+}
+
+function StartSwoosh(){
+    SwooshAnim.onAnimationGroupPlayObservable.add(()=>{
+        console.log("started swoosh")
+        window.setTimeout(()=>{
+            chocoMat.alpha = 1
+        },100)
+
+    })
+    SwooshAnim.onAnimationGroupEndObservable.add(()=>{
+        console.log("finish swoosh")
+        chocoMat.alpha = 0;
+        SwooshAnim.goToFrame = 0
+    })
+    SwooshAnim.play(false)
+
 }
 
 function TurnShadowsOn(){

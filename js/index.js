@@ -39,6 +39,7 @@ var createScene = function () {
     BGDefault.skybox.setEnabled(false)
     BGDefault.rootMesh.position.y = -0.05
 
+    
 
     //var vrHelper = scene.createDefaultVRExperience({createDeviceOrientationCamera:false});
     //Handle Dragging MOuse

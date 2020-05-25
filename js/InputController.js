@@ -6,12 +6,17 @@ jQuery(document).ready(function ($) {
     //var colorValue = rgb2hex(getComputedStyle(this).backgroundColor)
     var select = parseInt(this.id.split('colour')[1]);
     console.log(labelText[select].name)
-    labelMat.albedoTexture = labelText[select]
-    //labelMat.albedoTexture.vScale = -1
-    /* Remove all classes selectedColour from all child elements*/
-    //$('#colourPicker *').removeClass('selectedColour');
-    /* This switches on the selectedColour class for that div. */
-    //$(this).toggleClass('selectedColour');
+    if(select == 0){
+      StartSwoosh()
+      window.setTimeout(()=>{
+        labelMat.albedoTexture = labelText[select]
+      },1000)
+    }
+    else{
+      labelMat.albedoTexture = labelText[select]
+    }
+
+    
   });
 
 

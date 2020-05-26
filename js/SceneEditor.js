@@ -72,7 +72,7 @@ var HsPLaneList = []
 function SpawnHotspots() {
     //Plane
     Hs_Plane_P = new BABYLON.TransformNode("Hs_Plane_P", scene)
-    var hs0 = new Hotspot("0", new BABYLON.Vector3(0.25, 0.5, 0.75), HSMat, Hs_Plane_P)
+    var hs0 = new Hotspot("0", new BABYLON.Vector3(0.25, 1, 0.75), HSMat, Hs_Plane_P)
     HsPLaneList.push(hs0.Mesh);
 
 }
